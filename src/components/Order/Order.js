@@ -8,6 +8,10 @@ class Order extends React.Component {
   {
     const fish = this.props.fishes.find(x => x.id === key);
     const count = this.props.order[key];
+    const xClickFunction = () =>
+    {
+      this.props.removeFromOrder(key);
+    };
 
     return (
       <li
@@ -24,7 +28,7 @@ class Order extends React.Component {
           {formatPrice(fish.price)}
         </div>
         <div>
-          <button className="btn btn-default">&times;</button>
+          <button className="btn btn-default" onClick={xClickFunction}>&times;</button>
         </div>
       </li>
     );
